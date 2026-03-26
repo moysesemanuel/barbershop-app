@@ -1,0 +1,226 @@
+.sectionEyebrow,
+.aboutCardSmall span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c39a5c;
+}
+
+.aboutSection,
+.section,
+.statsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-bottom: 72px;
+  scroll-margin-top: 132px;
+}
+
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+}
+
+.sectionHeading h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.aboutGrid,
+.planGrid,
+.serviceGrid,
+.statsGrid,
+.testimonialGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.aboutGrid {
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+}
+
+.aboutCardLarge,
+.aboutCardSmall,
+.planCard,
+.serviceCard,
+.statCard,
+.testimonialCard {
+  padding: 28px;
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  border-radius: 28px;
+  background: #fcf8f2;
+  box-shadow: 0 16px 40px rgba(42, 31, 22, 0.06);
+}
+
+.aboutCardLarge p,
+.aboutCardSmall p,
+.planCard p,
+.serviceCard p,
+.testimonialCard p {
+  line-height: 1.75;
+  color: rgba(31, 23, 18, 0.76);
+}
+
+.benefitsTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: #1f1712;
+}
+
+.benefitsList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(31, 23, 18, 0.82);
+}
+
+.benefitsList li {
+  line-height: 1.65;
+}
+
+.aboutCardSmall {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.aboutCardSmall strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.planGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.planCard {
+  display: grid;
+  gap: 16px;
+}
+
+.planCard h3,
+.serviceCard h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  text-wrap: balance;
+}
+
+.planCard strong {
+  font-size: 1.4rem;
+  color: #1f1712;
+}
+
+.planCard a {
+  color: #8b6332;
+  font-weight: 700;
+}
+
+.serviceGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.serviceCard {
+  display: grid;
+  gap: 16px;
+}
+
+.serviceVisual {
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+  border-radius: 20px;
+}
+
+.serviceVisual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.28));
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.serviceMeta {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.serviceMeta strong {
+  font-size: 1.2rem;
+  color: #1f1712;
+}
+
+.serviceMeta span {
+  color: rgba(31, 23, 18, 0.72);
+}
+
+.statsGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.statCard {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+
+.statCard strong {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.statCard p {
+  color: rgba(31, 23, 18, 0.7);
+}
+
+.testimonialGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.testimonialCard {
+  display: grid;
+  gap: 18px;
+}
+
+.testimonialCard strong {
+  color: #8b6332;
+}
+
+@media (max-width: 960px) {
+  .aboutGrid,
+  .planGrid,
+  .serviceGrid,
+  .statsGrid,
+  .testimonialGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .aboutCardLarge,
+  .aboutCardSmall,
+  .planCard,
+  .serviceCard,
+  .statCard,
+  .testimonialCard {
+    padding: 22px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 2.5rem;
+  }
+}

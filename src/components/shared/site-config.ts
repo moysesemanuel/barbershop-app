@@ -1,0 +1,267 @@
+import {
+  availableTimes,
+  barbers,
+  plans,
+  services,
+  showcaseImages,
+  stats,
+  testimonials,
+} from "@/components/projects/barbershop/data";
+
+export const SITE_CONFIG_STORAGE_KEY = "prime-cut-site-config";
+export const SITE_CONFIG_UPDATED_EVENT = "prime-cut-site-config-updated";
+export const LEGACY_BUSINESS_TAG_PREFIX = "Barbearia premium em ";
+
+export type PlanItem = {
+  name: string;
+  summary: string;
+  price: string;
+};
+
+export type ServiceItem = {
+  name: string;
+  description: string;
+  price: string;
+  membership: string;
+  duration: string;
+  image: string;
+};
+
+export type ShowcaseImageItem = {
+  src: string;
+  alt: string;
+  title: string;
+  label: string;
+  variant: "tall" | "wide" | "square";
+};
+
+export type BarberItem = {
+  name: string;
+  role: string;
+};
+
+export type ClosedDateItem = {
+  date: string;
+  reason: string;
+};
+
+export type LoyaltyRewardItem = {
+  points: number;
+  title: string;
+  description: string;
+};
+
+export type LoyaltyTierItem = {
+  name: string;
+  minPoints: number;
+  maxPoints: number | null;
+  accent: string;
+};
+
+export type SiteConfig = {
+  businessName: string;
+  businessTag: string;
+  headline: string;
+  heroDescription: string;
+  whatsapp: string;
+  address: string;
+  addressNumber: string;
+  city: string;
+  neighborhood: string;
+  zipCode: string;
+  plans: PlanItem[];
+  services: ServiceItem[];
+  showcaseImages: ShowcaseImageItem[];
+  barbers: BarberItem[];
+  stats: { value: string; label: string }[];
+  testimonials: { name: string; quote: string }[];
+  loyaltyTiers: LoyaltyTierItem[];
+  loyaltyRewards: LoyaltyRewardItem[];
+  availableTimes: string[];
+  closedDates: ClosedDateItem[];
+  ignoredHolidayDates: string[];
+};
+
+export const defaultSiteConfig: SiteConfig = {
+  businessName: "Prime Cut Studio",
+  businessTag: "Barbearia premium",
+  headline: "Visual alinhado, atendimento pontual e experiência premium.",
+  heroDescription:
+    "Cortes precisos, atendimento pontual e uma experiência pensada para quem valoriza resultado.",
+  whatsapp: "(11) 99876-4521",
+  address: "Rua Haddock Lobo",
+  addressNumber: "412",
+  city: "São Paulo",
+  neighborhood: "Cerqueira César",
+  zipCode: "01414-000",
+  plans: plans.map((plan) => ({ ...plan })),
+  services: services.map((service) => ({ ...service })),
+  showcaseImages: showcaseImages.map((image) => ({ ...image })),
+  barbers: barbers.map((name) => ({
+    name,
+    role:
+      name === "Rafael Costa"
+        ? "Especialista em degradê e corte social"
+        : name === "Mateus Lima"
+          ? "Barba e acabamento clássico"
+          : "Estilos contemporâneos e atendimento premium",
+  })),
+  stats: stats.map((item) => ({ ...item })),
+  testimonials: testimonials.map((item) => ({ ...item })),
+  loyaltyTiers: [
+    { name: "Bronze", minPoints: 0, maxPoints: 99, accent: "#b3835a" },
+    { name: "Silver", minPoints: 100, maxPoints: 249, accent: "#b8c0cc" },
+    { name: "Gold", minPoints: 250, maxPoints: 499, accent: "#d6aa4d" },
+    { name: "Black", minPoints: 500, maxPoints: null, accent: "#1f1712" },
+  ],
+  loyaltyRewards: [
+    {
+      points: 50,
+      title: "Finalização premium",
+      description: "Troque seus pontos por uma finalização especial no atendimento.",
+    },
+    {
+      points: 100,
+      title: "Upgrade de barba",
+      description: "Inclua toalha quente e acabamento reforçado sem custo extra.",
+    },
+    {
+      points: 180,
+      title: "Desconto em pacote",
+      description: "Use os pontos para reduzir o valor de um pacote ou assinatura.",
+    },
+    {
+      points: 300,
+      title: "Serviço bônus",
+      description: "Resgate um benefício maior para a próxima visita no studio.",
+    },
+  ],
+  availableTimes: [...availableTimes],
+  closedDates: [
+    { date: "2026-03-30", reason: "Treinamento interno" },
+    { date: "2026-04-21", reason: "Feriado" },
+  ],
+  ignoredHolidayDates: [],
+};
+
+const legacyShowcaseImageMap: Record<string, string> = {
+  "/hero-ambiente.svg": "/img/espaco-masculino-interior-de-barbearia-moderna-gerado-por-ia_866663-5580.avif",
+  "/hero-acabamento.svg": "/img/VISS-Babearia-Visagista.jpg",
+  "/hero-experiencia.svg": "/img/Design_sem_nome_-_2022-08-03T224458.952__1_.webp",
+};
+
+const legacyServiceImageMap: Record<string, string> = {
+  "/service-cabelo.svg": "/img/um-cliente-a-cortar-o-cabelo-num-barbeiro_1303-20861.avif",
+  "/service-barba.svg": "/img/homem-bonito-na-barbearia-barbeando-a-barba_1303-26258.avif",
+  "/service-combo.svg": "/img/a-barbearia-vip-inovou-ao-implementar-visagismo-e-ia-em-sua-franquia.webp",
+  "/service-hidratacao.svg": "/img/hidratacao-no-cabelo-2.jpg",
+};
+
+function normalizeShowcaseImages(images: ShowcaseImageItem[]) {
+  return images.map((image) => ({
+    ...image,
+    src: legacyShowcaseImageMap[image.src] ?? image.src,
+  }));
+}
+
+function normalizeServiceImages(items: ServiceItem[]) {
+  return items.map((item) => ({
+    ...item,
+    image: legacyServiceImageMap[item.image] ?? item.image,
+  }));
+}
+
+export function readSiteConfig(): SiteConfig {
+  if (typeof window === "undefined") {
+    return defaultSiteConfig;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(SITE_CONFIG_STORAGE_KEY);
+    if (!raw) {
+      return defaultSiteConfig;
+    }
+
+    const parsed = JSON.parse(raw) as Partial<SiteConfig>;
+
+    const mergedConfig = {
+      ...defaultSiteConfig,
+      ...parsed,
+      plans: parsed.plans ?? defaultSiteConfig.plans,
+      services: normalizeServiceImages(parsed.services ?? defaultSiteConfig.services),
+      showcaseImages: normalizeShowcaseImages(parsed.showcaseImages ?? defaultSiteConfig.showcaseImages),
+      barbers: parsed.barbers ?? defaultSiteConfig.barbers,
+      stats: parsed.stats ?? defaultSiteConfig.stats,
+      testimonials: parsed.testimonials ?? defaultSiteConfig.testimonials,
+      loyaltyTiers: parsed.loyaltyTiers ?? defaultSiteConfig.loyaltyTiers,
+      loyaltyRewards: parsed.loyaltyRewards ?? defaultSiteConfig.loyaltyRewards,
+      availableTimes: parsed.availableTimes ?? defaultSiteConfig.availableTimes,
+      closedDates: parsed.closedDates ?? defaultSiteConfig.closedDates,
+      ignoredHolidayDates: parsed.ignoredHolidayDates ?? defaultSiteConfig.ignoredHolidayDates,
+    };
+
+    if (
+      mergedConfig.businessTag.startsWith(LEGACY_BUSINESS_TAG_PREFIX) &&
+      mergedConfig.city
+    ) {
+      mergedConfig.businessTag = `${LEGACY_BUSINESS_TAG_PREFIX}${mergedConfig.city}`;
+    }
+
+    return mergedConfig;
+  } catch {
+    return defaultSiteConfig;
+  }
+}
+
+export function writeSiteConfig(config: SiteConfig) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(SITE_CONFIG_STORAGE_KEY, JSON.stringify(config));
+  window.dispatchEvent(new CustomEvent(SITE_CONFIG_UPDATED_EVENT));
+}
+
+export function getDisplayStats(config: SiteConfig, averageRatingValue?: string) {
+  return config.stats.map((item, index) =>
+    index === 1
+      ? { ...item, value: averageRatingValue ?? item.value }
+      : index === 3
+        ? { ...item, value: `+${config.barbers.length}` }
+        : item,
+  );
+}
+
+export function getBusinessAddress(config: SiteConfig) {
+  const mainParts = [config.address, config.addressNumber].filter(Boolean).join(", ");
+  const secondaryParts = [config.neighborhood].filter(Boolean).join(" - ");
+  return [mainParts, secondaryParts].filter(Boolean).join(" - ");
+}
+
+export function getBusinessLocationLabel(config: SiteConfig) {
+  const locationParts = [config.city, config.neighborhood].filter(Boolean);
+  return locationParts.length > 0 ? locationParts.join(" - ") : "Localização da barbearia";
+}
+
+let cachedClientRawConfig: string | null = null;
+let cachedClientParsedConfig: SiteConfig = defaultSiteConfig;
+
+export function getClientSiteConfigSnapshot() {
+  if (typeof window === "undefined") {
+    return defaultSiteConfig;
+  }
+
+  const raw = window.localStorage.getItem(SITE_CONFIG_STORAGE_KEY);
+
+  if (raw === cachedClientRawConfig) {
+    return cachedClientParsedConfig;
+  }
+
+  cachedClientRawConfig = raw;
+  cachedClientParsedConfig = readSiteConfig();
+  return cachedClientParsedConfig;
+}
+
+export function getServerSiteConfigSnapshot() {
+  return defaultSiteConfig;
+}

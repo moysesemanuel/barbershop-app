@@ -1,0 +1,338 @@
+.page {
+  background:
+    radial-gradient(circle at top, rgba(194, 153, 88, 0.22), transparent 42%),
+    linear-gradient(180deg, #150f0b 0%, #090706 100%);
+  color: #f8f1e6;
+  min-height: 100vh;
+}
+
+.heroShell {
+  min-height: 100vh;
+  padding: 144px 0 48px;
+}
+
+.main {
+  display: grid;
+  gap: 28px;
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 24px;
+}
+
+.introCard,
+.emptyCard,
+.sectionCard,
+.appointmentCard {
+  background: rgba(22, 16, 12, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.introCard,
+.emptyCard,
+.sectionCard {
+  padding: 28px;
+}
+
+.eyebrow {
+  color: #cda45e;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.introCard h1,
+.sectionHeading h2 {
+  color: #fff8ef;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.introCard p,
+.sectionHeading p,
+.emptyCard p,
+.appointmentMeta,
+.appointmentNotes,
+.modalHint,
+.message {
+  color: rgba(248, 241, 230, 0.78);
+}
+
+.sectionCard {
+  display: grid;
+  gap: 22px;
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 10px;
+}
+
+.appointmentsGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.appointmentCard {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr);
+  padding: 22px;
+}
+
+.appointmentMain {
+  display: grid;
+  gap: 14px;
+}
+
+.appointmentHeader {
+  align-items: start;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.appointmentHeader h3 {
+  color: #fff8ef;
+  font-size: 1.3rem;
+  margin: 0 0 6px;
+}
+
+.statusBadge {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.statusScheduled {
+  background: rgba(205, 164, 94, 0.18);
+  color: #f2c46a;
+}
+
+.statusConfirmed {
+  background: rgba(94, 183, 132, 0.18);
+  color: #90e4ae;
+}
+
+.statusCancelled {
+  background: rgba(205, 108, 108, 0.16);
+  color: #f1a0a0;
+}
+
+.statusCompleted {
+  background: rgba(136, 152, 178, 0.18);
+  color: #d1d8e4;
+}
+
+.appointmentMetaGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metaItem {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+}
+
+.metaItem span {
+  color: rgba(248, 241, 230, 0.62);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.metaItem strong {
+  color: #fff8ef;
+  font-size: 1rem;
+}
+
+.appointmentAside {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 22px;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.appointmentActions {
+  display: grid;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+  align-items: center;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.95rem;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.primaryButton {
+  background: #cda45e;
+  color: #140f0b;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff8ef;
+}
+
+.dangerButton {
+  background: rgba(177, 58, 58, 0.18);
+  color: #ffc6c6;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.dangerButton:hover {
+  transform: translateY(-1px);
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.message {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.modalSection {
+  display: grid;
+  gap: 12px;
+}
+
+.modalSection h3 {
+  color: #fff8ef;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.dateGrid,
+.timeGrid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dateCard,
+.timeCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  color: #fff8ef;
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+  min-height: 70px;
+  padding: 14px;
+  text-align: left;
+}
+
+.dateCard strong,
+.timeCard strong {
+  font-size: 1rem;
+}
+
+.dateCard span,
+.timeCard span {
+  color: rgba(248, 241, 230, 0.66);
+  font-size: 0.84rem;
+}
+
+.dateCardActive,
+.timeCardActive {
+  background: rgba(205, 164, 94, 0.16);
+  border-color: rgba(205, 164, 94, 0.62);
+}
+
+.modalSummary {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+}
+
+.modalSummary strong {
+  color: #fff8ef;
+}
+
+@media (max-width: 960px) {
+  .appointmentCard {
+    grid-template-columns: 1fr;
+  }
+
+  .dateGrid,
+  .timeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .heroShell {
+    padding-top: 126px;
+  }
+
+  .main {
+    padding: 0 16px;
+  }
+
+  .introCard,
+  .emptyCard,
+  .sectionCard,
+  .appointmentCard {
+    border-radius: 24px;
+  }
+
+  .appointmentMetaGrid,
+  .dateGrid,
+  .timeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .appointmentHeader {
+    flex-direction: column;
+  }
+
+  .emptyActions,
+  .appointmentActions {
+    grid-template-columns: 1fr;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .dangerButton {
+    width: 100%;
+  }
+}

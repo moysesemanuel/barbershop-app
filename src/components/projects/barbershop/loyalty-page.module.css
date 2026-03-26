@@ -1,0 +1,285 @@
+.page {
+  min-height: 100vh;
+  background: #120e0b;
+  color: #f5efe6;
+}
+
+.heroShell {
+  padding-top: 132px;
+  background:
+    radial-gradient(circle at top, rgba(195, 154, 92, 0.2), transparent 32%),
+    linear-gradient(180deg, #201712 0%, #120e0b 100%);
+}
+
+.main,
+.content {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.main {
+  padding: 34px 0 56px;
+}
+
+.introCard,
+.overviewCard,
+.rewardCard,
+.emptyCard {
+  border: 1px solid rgba(195, 154, 92, 0.18);
+  border-radius: 30px;
+  background: rgba(30, 22, 18, 0.72);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 44px rgba(8, 6, 5, 0.16);
+}
+
+.introCard {
+  display: grid;
+  gap: 16px;
+  padding: 30px;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c39a5c;
+}
+
+.introCard h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 0.94;
+}
+
+.introCard p,
+.metaText,
+.rewardCard p,
+.emptyCard p {
+  color: rgba(245, 239, 230, 0.76);
+  line-height: 1.75;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.overviewCard {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+}
+
+.pointsHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.pointsValue {
+  display: grid;
+  gap: 6px;
+}
+
+.pointsValue strong {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  line-height: 0.9;
+}
+
+.levelBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #1c140f;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progressBlock {
+  display: grid;
+  gap: 10px;
+}
+
+.progressTrack {
+  height: 16px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(245, 239, 230, 0.08);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c39a5c 0%, #f2c46d 100%);
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(245, 239, 230, 0.72);
+  font-size: 0.95rem;
+}
+
+.overviewStats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.statCard {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(245, 239, 230, 0.05);
+}
+
+.statCard strong {
+  color: #f5efe6;
+  font-size: 1.3rem;
+}
+
+.statCard span {
+  color: rgba(245, 239, 230, 0.7);
+}
+
+.content {
+  padding: 72px 0;
+  display: grid;
+  gap: 28px;
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 10px;
+}
+
+.sectionHeading h2 {
+  color: #1f1712;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.98;
+}
+
+.sectionHeading p {
+  color: rgba(31, 23, 18, 0.72);
+  line-height: 1.7;
+}
+
+.rewardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.rewardCard {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  background: #fcf8f2;
+  border-color: rgba(31, 23, 18, 0.08);
+}
+
+.rewardCard strong {
+  color: #1f1712;
+  font-size: 1.2rem;
+}
+
+.rewardPoints {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(195, 154, 92, 0.16);
+  color: #7b5a2f;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.emptySection {
+  background: #f3ede4;
+}
+
+.emptyCard {
+  padding: 28px;
+}
+
+.emptyCard strong {
+  font-size: 1.3rem;
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  transition: transform 180ms ease, opacity 180ms ease, background-color 180ms ease;
+}
+
+.primaryButton {
+  background: #c39a5c;
+  color: #1c140f;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(31, 23, 18, 0.12);
+  background: #fff;
+  color: #1f1712;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 960px) {
+  .overviewGrid,
+  .rewardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .main,
+  .content {
+    width: min(1120px, calc(100% - 32px));
+  }
+
+  .overviewStats {
+    grid-template-columns: 1fr;
+  }
+
+  .progressMeta,
+  .pointsHeader {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

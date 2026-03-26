@@ -1,0 +1,190 @@
+.page {
+  min-height: 100vh;
+  background: #120e0b;
+  color: #f5efe6;
+}
+
+.heroShell {
+  padding-top: 128px;
+  background:
+    radial-gradient(circle at top, rgba(195, 154, 92, 0.2), transparent 32%),
+    linear-gradient(180deg, #201712 0%, #120e0b 100%);
+}
+
+.main {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 34px 0 72px;
+}
+
+.intro {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.intro h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 0.94;
+}
+
+.intro p {
+  max-width: 60ch;
+  color: rgba(245, 239, 230, 0.76);
+  line-height: 1.75;
+}
+
+.cartLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 24px;
+}
+
+.cartList,
+.summaryCard,
+.emptyCard {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(195, 154, 92, 0.18);
+  background: rgba(30, 22, 18, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 18px;
+  align-items: start;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(245, 239, 230, 0.05);
+}
+
+.cartImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.cartBody {
+  display: grid;
+  gap: 8px;
+}
+
+.cartBody strong {
+  font-size: 1.15rem;
+}
+
+.cartBody span,
+.summaryCard p,
+.emptyCard p {
+  color: rgba(245, 239, 230, 0.72);
+  line-height: 1.7;
+}
+
+.cartMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cartMeta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(245, 239, 230, 0.08);
+}
+
+.removeButton,
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.primaryButton {
+  background: #c39a5c;
+  color: #1c140f;
+  border: 1px solid #c39a5c;
+}
+
+.secondaryButton {
+  background: #fff;
+  color: #1f1712;
+  border: 1px solid rgba(31, 23, 18, 0.12);
+}
+
+.removeButton {
+  background: rgba(121, 43, 32, 0.14);
+  color: #f7d7d2;
+  border: 1px solid rgba(168, 69, 52, 0.34);
+}
+
+.summaryCard {
+  align-content: start;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(245, 239, 230, 0.8);
+}
+
+.summaryRow strong {
+  color: #f5efe6;
+}
+
+.summaryActions {
+  display: grid;
+  gap: 12px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .removeButton:hover,
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 960px) {
+  .cartLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .main {
+    width: min(1120px, calc(100% - 32px));
+  }
+
+  .cartList,
+  .summaryCard,
+  .emptyCard {
+    padding: 22px;
+  }
+
+  .cartItem {
+    grid-template-columns: 1fr;
+  }
+
+  .cartImage {
+    width: 100%;
+    height: 220px;
+  }
+}

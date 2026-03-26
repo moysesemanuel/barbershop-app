@@ -1,0 +1,551 @@
+.section {
+  display: grid;
+  gap: 24px;
+}
+
+.topBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topBarActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.intro {
+  display: grid;
+  gap: 8px;
+}
+
+.intro p {
+  color: rgba(31, 23, 18, 0.72);
+  line-height: 1.7;
+}
+
+.sessionCard,
+.cartCard,
+.serviceCard,
+.emptyCard,
+.summaryCard {
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  border-radius: 28px;
+  background: #fcf8f2;
+  box-shadow: 0 16px 40px rgba(42, 31, 22, 0.06);
+}
+
+.sessionCard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+}
+
+.sessionCard strong,
+.summaryCard strong,
+.cartItem strong {
+  color: #1f1712;
+}
+
+.sessionCard span,
+.summaryCard span,
+.cartItem span,
+.emptyCard p {
+  color: rgba(31, 23, 18, 0.72);
+  line-height: 1.65;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.serviceCard {
+  display: grid;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.serviceBody {
+  display: grid;
+  gap: 14px;
+  padding: 0 24px 24px;
+}
+
+.serviceMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.serviceMeta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(31, 23, 18, 0.05);
+  color: rgba(31, 23, 18, 0.74);
+  font-weight: 700;
+}
+
+.cartCard {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+
+.cartList {
+  display: grid;
+  gap: 12px;
+}
+
+.cartItem {
+  display: grid;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: rgba(31, 23, 18, 0.04);
+}
+
+.emptyCard {
+  padding: 22px;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 6, 5, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.modal {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: min(90vh, 920px);
+  display: grid;
+  gap: 22px;
+  overflow: auto;
+  padding: 28px;
+  border-radius: 30px;
+  background: #f7f1e8;
+  color: #1f1712;
+  box-shadow: 0 32px 60px rgba(8, 6, 5, 0.34);
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(31, 23, 18, 0.12);
+  border-radius: 999px;
+  background: #fff;
+  color: #1f1712;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.modalCloseButton:hover {
+  transform: translateY(-2px);
+  background: #f1e7d8;
+  border-color: rgba(195, 154, 92, 0.5);
+}
+
+.modalCompact {
+  width: min(560px, 100%);
+}
+
+.modalHeader {
+  display: grid;
+  gap: 10px;
+}
+
+.modalHeader h3 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.98;
+}
+
+.modalHeader p {
+  color: rgba(31, 23, 18, 0.72);
+  line-height: 1.7;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.field span {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.fieldHint {
+  color: rgba(31, 23, 18, 0.64);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 16px;
+  border: 1px solid rgba(31, 23, 18, 0.12);
+  border-radius: 16px;
+  background: #fff;
+  font: inherit;
+  color: #1f1712;
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.cardScroller {
+  display: grid;
+  gap: 12px;
+}
+
+.dateGrid,
+.barberGrid,
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.dateCard,
+.barberCard {
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  border-radius: 22px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.dateCard {
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  text-align: left;
+}
+
+.dateCard strong,
+.barberCard strong {
+  color: #1f1712;
+}
+
+.dateCard span,
+.barberCard span {
+  color: rgba(31, 23, 18, 0.72);
+}
+
+.dateCardActive,
+.barberCardActive {
+  border-color: #c39a5c;
+  background: rgba(195, 154, 92, 0.12);
+}
+
+.barberCard {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.barberImage {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.barberPlaceholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 140px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #c39a5c, #8b6332);
+  color: #1c140f;
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.selectionGrid {
+  display: grid;
+  gap: 22px;
+}
+
+.selectionSection {
+  display: grid;
+  gap: 14px;
+}
+
+.selectionSection h4 {
+  font-size: 1.05rem;
+  color: #1f1712;
+}
+
+.helperCard {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(31, 23, 18, 0.05);
+  color: rgba(31, 23, 18, 0.74);
+  line-height: 1.7;
+}
+
+.summaryCard {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+}
+
+.summaryHead {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.summaryImage {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.summaryMeta {
+  display: grid;
+  gap: 8px;
+}
+
+.summaryLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.summaryLine span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(31, 23, 18, 0.05);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: rgba(31, 23, 18, 0.04);
+}
+
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(31, 23, 18, 0.16);
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 180ms ease;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #fff;
+  transition: transform 180ms ease;
+}
+
+.toggleActive {
+  background: #c39a5c;
+}
+
+.toggleActive::after {
+  transform: translateX(24px);
+}
+
+.modalActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modalPrimaryButton,
+.modalSecondaryButton,
+.modeButton,
+.modeButtonActive,
+.surfacePrimaryButton,
+.surfaceSecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.modalPrimaryButton,
+.modeButtonActive,
+.surfacePrimaryButton {
+  background: #c39a5c;
+  color: #1c140f;
+  border: 1px solid #c39a5c;
+}
+
+.modalSecondaryButton,
+.modeButton,
+.surfaceSecondaryButton {
+  background: #fff;
+  color: #1f1712;
+  border: 1px solid rgba(31, 23, 18, 0.12);
+}
+
+.modalSecondaryButton:hover,
+.modeButton:hover,
+.modalPrimaryButton:hover,
+.modeButtonActive:hover,
+.surfacePrimaryButton:hover,
+.surfaceSecondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.feedback {
+  padding: 16px 18px;
+  border-radius: 18px;
+  line-height: 1.7;
+}
+
+.feedbackSuccess {
+  background: rgba(50, 108, 72, 0.12);
+  color: #2f6946;
+}
+
+.feedbackError {
+  background: rgba(121, 43, 32, 0.1);
+  color: #7d2f24;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dateCard:hover,
+  .barberCard:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 720px) {
+  .serviceGrid,
+  .fieldGrid,
+  .summaryHead {
+    grid-template-columns: 1fr;
+  }
+
+  .modalOverlay {
+    padding: 16px;
+  }
+
+  .modal {
+    width: 100%;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .barberImage,
+  .barberPlaceholder {
+    height: 120px;
+  }
+
+  .summaryImage {
+    width: 100%;
+    height: 180px;
+  }
+
+  .modalActions,
+  .topBarActions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .modalPrimaryButton,
+  .modalSecondaryButton,
+  .surfacePrimaryButton,
+  .surfaceSecondaryButton {
+    width: 100%;
+  }
+
+  .dateGrid,
+  .barberGrid,
+  .timeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .toggleRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

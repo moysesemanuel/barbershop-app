@@ -1,0 +1,171 @@
+.contactLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c39a5c;
+}
+
+.contactSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 20px;
+  scroll-margin-top: 132px;
+}
+
+.contactSection h2 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.98;
+}
+
+.contactIntro {
+  display: grid;
+  gap: 16px;
+}
+
+.contactText,
+.contactCard p {
+  line-height: 1.75;
+  color: rgba(31, 23, 18, 0.76);
+}
+
+.contactCard {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  padding: 28px;
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  border-radius: 28px;
+  background: #fcf8f2;
+  box-shadow: 0 16px 40px rgba(42, 31, 22, 0.06);
+}
+
+.contactMapCard {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 30px;
+  background: #fff;
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  box-shadow: 0 24px 48px rgba(31, 23, 18, 0.08);
+}
+
+.contactMapHeader {
+  display: grid;
+  gap: 8px;
+}
+
+.contactMapHeader p {
+  color: rgba(31, 23, 18, 0.68);
+}
+
+.contactActions {
+  display: grid;
+  gap: 12px;
+}
+
+.contactSecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid rgba(31, 23, 18, 0.12);
+  border-radius: 999px;
+  background: #fff;
+  color: #1f1712;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.contactMapFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  min-height: 360px;
+}
+
+.contactMapFrame iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  border: 0;
+  display: block;
+}
+
+.contactMapActions {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mapActionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(31, 23, 18, 0.08);
+  box-shadow: 0 16px 32px rgba(31, 23, 18, 0.16);
+  backdrop-filter: blur(14px);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.mapActionIcon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 960px) {
+  .contactSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contactSecondaryButton:hover {
+    transform: translateY(-2px);
+    background: #f6efe5;
+    border-color: rgba(195, 154, 92, 0.34);
+  }
+}
+
+@media (max-width: 640px) {
+  .contactCard,
+  .contactMapCard {
+    padding: 22px;
+  }
+
+  .contactMapFrame,
+  .contactMapFrame iframe {
+    min-height: 300px;
+  }
+
+  .contactMapActions {
+    top: 12px;
+    right: 12px;
+  }
+
+  .mapActionButton {
+    width: 46px;
+    height: 46px;
+  }
+
+  .contactSection h2 {
+    font-size: 2.5rem;
+  }
+}
